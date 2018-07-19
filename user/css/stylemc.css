@@ -1,0 +1,72 @@
+.content{
+    top: 70px;
+    margin-bottom: 100px;
+}
+.content h2{
+    width: 100%;
+    background: #6a818e;
+    color: #454545;
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 20px;
+    left: -10px;
+}
+.content table{
+    width: 100%;
+}
+.content table td{
+    height: 40px;
+    text-align: left;
+    border-bottom: 1px solid #b1b1b1;
+}
+.content table a{
+    color: #4e53ff;
+    border-bottom: 1px dotted #06C;
+    cursor: pointer;
+    transition: color 1s;
+    transition: border 1s;
+}
+.content table a:hover{
+    color: #B5684D;
+    border-bottom: 1px dotted #B5684D;
+}
+.content table th{
+    font-size: 14pt;
+    background: #707d86;
+    height: 30px;
+    font-weight: 400;
+}
+.content table td input{
+    border: none;
+    background: none;
+    text-align: left;
+    height: 25px;
+}
+.content table .cancel{
+    color: red;
+    border-bottom: 1px dotted red;
+    margin-left: 5px;
+    display: none;
+}
+.content table .esq{
+    width: 200px;
+    padding-left: 10px;
+}
+.content table .edittd{
+    width: 150px;
+    text-align: right;
+    padding-right: 10px;
+}
+.content #help{
+    min-height: 40px;
+    line-height: 40px;
+    max-height:150px;
+    overflow-y: scroll;
+    border-left: 1px solid #b1b1b1;
+    border-right: 1px solid #b1b1b1;
+}
+.content #help .option *{
+    display: inline-block;
+}
+.content #help .option:hover{
+    background: #a0a0a0;
+}

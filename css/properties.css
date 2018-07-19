@@ -1,0 +1,72 @@
+#properties{
+    min-height: 50px;
+    text-align: center;
+}
+#properties a{
+    text-decoration: none;
+    max-width: 250px;
+}
+.propertie{
+    position: relative;
+    width: 250px;
+    height: 70px;
+    line-height: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    background: #0f1b23;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background 1s;
+}
+.propertie:hover{
+    background: rgba(142,142,142,0.8) !important;
+}
+.propertie p{
+    margin: 0px;
+    padding-top: 5px;
+    padding-right: 10px;
+    height: 25px;
+    line-height: 25px;
+    display: block;
+    font-family:  Arial;
+    font-size: 11pt;
+    text-align: right;
+}
+.propertie i{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    font-size: 25pt;
+    text-align: center;
+    top: 5px;
+    left: 5px;
+    line-height: 60px;
+    shape-outside: circle(50%);
+    border-radius: 30px;
+    display: block;
+    filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
+    -webkit-filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.7));
+}
+#properties-1 i{
+    background: #49adf1;
+}
+#properties-2 i{
+    background: #34c95d;
+}
+#properties-3 i{
+    background: #d12727;
+}
+#properties-4 i{
+    background: #f1b549;
+}
+.number{
+    padding: 0px !important;
+    padding-right: 10px !important;
+    font-weight: 700;
+    font-size: 25pt !important;
+    background: #4e5c70 !important;
+    height: 40px !important;
+    line-height: 40px !important;
+}

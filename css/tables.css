@@ -1,0 +1,168 @@
+table.list{
+    margin-top: 30px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    min-width: 1030px;
+    background: #d6d6d6;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: arial;
+    border: 1px #777 solid;
+    text-align: left;
+}
+table.form{
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    background: #d6d6d6;
+    font-family: arial;
+    border: 1px #777 solid;
+    text-align: center;
+}
+table tr.removivel{
+    display: block;
+}
+table.list tr i.fa-arrow-left{
+    transition: background 0.5s;
+    margin-right: 10px;
+}
+table.list tr i.fa-arrow-right{
+    transition: background 0.5s;
+    margin-left: 10px;
+}
+table.list tr i.fa-arrow-left:hover,
+table.list tr i.fa-arrow-right:hover{
+    background: #325cbd;
+    cursor: pointer;
+}
+table.list th,
+table.list td{
+    font-size: 16pt;
+    padding: 5px;
+    line-height: 30px;
+    color: #05081d;
+    border: solid #777;/*  inner column border */
+    border-width: 0 0px 1px 1px;
+    font-size: inherit;
+    margin: 0;
+    text-align: center;
+}
+
+table.list tr i{
+    background: #05081d;
+    color: white;
+    line-height: 30px !important;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    shape-outside: circle(50%);
+    border-radius: 15px;
+    display: inline-block;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+    -webkit-filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.7));
+}
+table.list .colAcao{
+    text-align: center;
+}
+table.list .colAcao .acao{
+    position: relative;
+}
+table.list tr .colAcao{
+    width: 100px;
+}
+table.list a:hover, a:active, a:link{
+    border-bottom: 2px dotted rgb(202, 121, 0);
+}
+table.list tr .colAcao a:hover, a:active, a:link{
+    background: none;
+    text-decoration: none;
+    border: none;
+}
+table.list tr .colAcao i{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    transition: background 0.5s;
+}
+table.list tr .colAcao i.fa:hover{
+    cursor: pointer;
+    background: #515571;
+}
+table.list tr .colAcao i.fa-wpforms:hover{
+    background: #325cbd;
+}
+table.list tr .colAcao i.fa-thumbs-o-up:hover{
+    background: #32bd4c;
+}
+table.list tr .colAcao i.fa-remove:hover,
+table.list tr .colAcao i.fa-thumbs-o-down:hover{
+    background: #bd3232;
+}
+table.list tr .colStatus{
+    width: 10px;
+}
+table.list tr .colStatus .fa-send{
+    background: #49adf1;
+}
+table.list tr .colStatus .fa-slideshare{
+    background: #34c95d;
+}
+table.list tr .colStatus .fa-ban{
+    background: #d12727;
+}
+table.list tr .colStatus .fa-pencil{
+    background: #7b5614;   
+}
+table.list tr .colStatus .fa-spinner{
+    background: #f1b549;   
+}
+table.list tr .colStatus i.fa-unlock-alt,
+table.list tr .colStatus i.fa-thumbs-o-up{
+    background: #32bd43;
+}
+table.list tr .colStatus i.fa-lock,
+table.list tr .colStatus i.fa-thumbs-o-down{
+    background: #bd3232;
+}
+table.list tr .colStatus i.fa-lock{
+    background: #bd3232;
+}
+table.list tr .antpag,
+table.list tr .proxpag{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+table.list tr .antpag:hover,
+table.list tr .proxpag:hover{
+    border-bottom: none;
+}
+table.list tr .antpag:hover i,
+table.list tr .proxpag:hover i{
+    background: #325cbd;
+}
+table a.btview{
+    border: none;
+    color: white;
+}
+table a.btview div{
+    background: #05081d;
+    line-height: 30px !important;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    border-radius: 15px;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+    -webkit-filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.7));
+    transition: background .5s;
+}
+table a.btview div:hover{
+    cursor: pointer;
+    background: #515571;
+}
+table a[ac=allow].btview div:hover{
+    background-color: #32bd4c;
+}
+table a[ac=deny].btview div:hover{
+    background-color: #bd3232;
+}

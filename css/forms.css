@@ -1,0 +1,405 @@
+form{
+    position: relative;
+    min-width: 1030px;
+}
+#normal{
+    min-height: 60px;
+    text-align: left;
+    padding: 10px;
+}
+#search{
+    background: #989898;
+    min-height: 60px;
+    border-top: 3px solid #79828f;
+    border-bottom: 3px solid #79828f;
+}
+
+.one-line{
+    line-height: 60px;
+}
+
+#search .input{
+    position: relative;
+    display: inline-block;
+    font-family: arial;
+    font-size: 12pt;
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+#normal .input{
+    position: relative;
+    display: block;
+    font-family: arial;
+    font-size: 12pt;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+#normal .icone{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    top: 3px;
+    line-height: 30px;
+    border: 1px #aaa solid;
+    text-align: center;
+    background: white;
+}
+.input label{
+    margin: 0px;
+}
+
+label{
+    display: block;
+    margin: 0px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 11pt;
+    font-weight: 700;
+
+}
+
+.input *{
+    white-space: nowrap;
+    border-collapse: collapse !important;
+    border-spacing: 0;
+    outline: none;
+}
+
+.input label{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.input i{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 30px;
+    margin: 0px;
+    padding: 0px;
+    line-height: 28px;
+    border: 1px #aaa solid;
+    border-right: none;
+    box-sizing: border-box;
+    background: white;
+    text-align: center;
+    color: black;
+}
+.input i img{
+    width: 28px;
+    height: 28px;
+}
+
+.input input[type=submit],
+.input input[type=button],
+.input button{
+    background: #0f1b23;
+    outline: none;
+    border: none;
+    color: white;
+    font-family: arial;
+    font-size: 12pt;
+    padding: 6px 32px;
+    box-shadow: 3px 3px 5px black;
+    transition: background 1s;
+}
+
+.input.submit,
+.input.addLine,
+.input.remLine{
+    display: inline-block !important;
+}
+.input.submit:active{
+    transform: translate3d(3px,3px,0);
+}
+.input.submit:hover{
+    box-shadow: none;
+}
+.input.checkbox:hover{
+    box-shadow: none;
+}
+.input.checkbox:hover span{
+    box-shadow: 0px 0px 5px #06C;
+}
+
+.input.submit:active input[type=submit]:hover,
+.input.submit:active input[type=button]:hover,
+.input.submit:active button:hover{
+    background: #0f1b23;
+    box-shadow: 1px 1px 0px black;
+}
+.input input[type=submit]:hover,
+.input input[type=button]:hover,
+.input button:hover{
+    background: #646d73;
+}
+
+.input.submit i{
+    color: #0f1b23;
+    background: none;
+    transition: color 1s;
+    border: none;
+}
+.input.submit:active i{
+    color: #646d73;
+}
+
+.input.submit input[type=submit],
+.input.submit input[type=button],
+.input.submit button{
+    padding-left: 30px;
+}
+
+.input select,
+.input textarea,
+.input input[type=text],
+.input input[type=date],
+.input input[type=password],
+.input input[type=time],
+.input input[type=number],
+.input input[type=email],
+.input input[type=file]{
+    background: none;
+    border: none;
+    margin-left: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    border: 1px #aaa solid;
+    background: white;
+}
+.input.checks-group{
+    background: none;
+    border: none;
+}
+.input input[type=checkbox]:not(old),
+.input input[type=radio]:not(old){
+    width : 2em;
+    margin : 0;
+    padding : 0;
+    font-size : 1em;
+    opacity : 0;
+}
+.input input[type=checkbox]:not(old) + label,
+.input input[type=radio]:not(old) + label{
+    display : inline-block;
+    margin-left : -2em;
+    line-height : 1.5em;
+}
+.input input[type=checkbox]:not(old) + label > span,
+.input input[type=radio]:not(old) + label > span{
+    display : inline-block;
+    width : 0.875em;
+    height : 0.875em;
+    margin : 0.25em 0.5em 0.25em 0.25em;
+    border : 0.0625em solid rgb(192,192,192);
+    border-radius : 0.25em;
+    background : rgb(224,224,224);
+    background-image : -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    background-image : -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    background-image : -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    background-image : linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    vertical-align  : bottom;
+}
+.input input[type=checkbox]:not(old):checked + label > span,
+.input input[type=radio]:not(old):checked + label > span{
+    background-image : -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+    background-image : -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+    background-image : -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+    background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+    background-image : linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+.input input[type=checkbox]:not(old):checked + label > span:before{
+    content : '✓';
+    display : block;
+    width : 1em;
+    color: rgb(39, 64, 82);
+    font-size : 0.875em;
+    line-height : 1em;
+    text-align : center;
+    text-shadow: 0 0 0.0714em rgb(121, 130, 143);
+    font-weight : bold;
+}
+.input input[type=radio]:not(old):checked + label > span > span{
+    display : block;
+    width : 0.5em;
+    height : 0.5em;
+    margin : 0.125em;
+    border : 0.0625em solid #05081d;
+    border-radius : 0.125em;
+    background : rgb(153,204,102);
+    background-image : -moz-linear-gradient(rgb(121, 130, 143),rgb(39, 64, 82));
+    background-image : -ms-linear-gradient(rgb(121, 130, 143),rgb(39, 64, 82));
+    background-image : -o-linear-gradient(rgb(121, 130, 143),rgb(39, 64, 82));
+    background-image : -webkit-linear-gradient(rgb(121, 130, 143),rgb(39, 64, 82));
+    background-image : linear-gradient(rgb(121, 130, 143),rgb(39, 64, 82));
+}
+
+.input .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.input .inputfile + label {
+    background-color: white;
+    display: inline-block;
+    margin-left: 30px;
+    margin-right: 0px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: background .5s;
+    border: 1px #aaa solid;
+}
+
+.input .inputfile:focus + label,
+.input .inputfile + label:hover {
+    background-color: #aaa;
+}
+
+.input .inputfile + label {
+    cursor: pointer; /* "hand" cursor */
+}
+.input .inputfile:focus + label,
+.input .inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.image-preview{
+    display: none;
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    padding: 5px;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 50px;
+    font-family: arial;
+    color: white;
+    z-index: 9999;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
+}
+.image-preview div{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.image-preview #image{
+    max-height: 300px;
+    max-width: 300px;
+}
+
+form #help{
+    position: absolute;
+    top: 572px;
+    left: 300px;
+    background: rgba(0,0,0,0.5);
+    width: 600px;
+    min-height: 30px;
+    line-height: 30px;
+    max-height: 218px;
+    padding: 5px;
+    border: 1px #aaa solid;
+    box-shadow: 5px 5px 5px black;
+    transition: background 1s;
+    display: none;
+}
+
+form #help .title{
+    display: block;
+    height:30px;
+    line-height:30px;
+    text-align: center;
+    background: #aaa;
+    border: 1px #888 solid;
+    border-bottom:none;
+}
+
+form #help #scroll{
+    border-collapse: collapse;
+    background: #888;
+    position: relative;
+    max-height: 180px;
+    overflow-y: scroll;
+    border: 1px #888 solid;
+}
+form #help .option{
+    height:30px;
+    line-height:30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+form #help .option:hover{
+    background: #aaa;
+    cursor: pointer; 
+}
+form #help .option *{
+    display: inline;
+}
+.function{
+    position: relative;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    background: #d6d6d6;
+    font-family: arial;
+    border: 1px #777 solid;
+    display: inline-block;
+    margin-left: 13px;
+}
+.tblinha .input,
+.tblinha .tbcol{
+    display: inline-block !important;
+}
+.input.addLine:active input[type=submit]:hover,
+.input.addLine:active input[type=button]:hover,
+.input.addLine:active button:hover,
+.input.remLine:active input[type=submit]:hover,
+.input.remLine:active input[type=button]:hover,
+.input.remLine:active button:hover{
+    background: #0f1b23;
+    box-shadow: 1px 1px 0px black;
+}
+.input.addLine:hover input[type=submit],
+.input.addLine:hover input[type=button],
+.input.addLine:hover button,
+.input.remLine:hover input[type=submit],
+.input.remLine:hover input[type=button],
+.input.remLine:hover button{
+    background: #646d73;
+}
+.input.addLine i,
+.input.remLine i{
+    color: #646d73;
+    background: none;
+    transition: color 1s;
+    border: none;
+    line-height: 30px;
+}
+
+.input.addLine:active i,
+.input.remLine:active i{
+    color: #646d73;
+}
+
+.input.addLine:hover i,
+.input.remLine:hover i{
+    color: #0f1b23;
+}
+
+.input.addLine input[type=submit],
+.input.addLine input[type=button],
+.input.addLine button,
+.input.remLine input[type=submit],
+.input.remLine input[type=button],
+.input.remLine button{
+    padding-left: 0px;
+    width: 30px;
+    height: 29px;
+}

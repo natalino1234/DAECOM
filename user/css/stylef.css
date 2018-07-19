@@ -1,0 +1,222 @@
+form{
+	position: relative;
+	background: #3E4C54;
+	padding: 5px;
+	padding-right:5px;
+	box-shadow: 0px 0px 5px #000;
+	text-align: center;
+	font-family: Arial, sans-serif;
+	color: white;
+}
+
+.form{
+	display: block;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+.form h2{
+	width: 100%;
+	background: #6a818e;
+}
+
+.input{
+	background: white;
+	position: relative;
+	height: 30px;
+	margin: 5px;
+	border: 1px solid #e3e3e3;
+	transition: background 0.3s;
+}
+
+.form *{
+	display: inline-block;
+}
+
+.login *{
+	display:inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.input input, .input select, .input textarea{
+	position: relative;
+	min-width: 160px;
+	text-align: left;
+	z-index: 1;
+	resize: none;
+	background: none;
+	display: inline;
+	height: 100%;
+	top: -11px;
+	padding-left: 5px;
+	background: none;
+	border: none;
+	z-index: 0;
+}
+
+.input .info{
+	height: 100%;
+	/*padding-right: 5px;*/
+	border-right: 1px solid #e3e3e3;
+	/*margin-left: 5px;*/
+	color: #929292;
+}
+
+
+.input .ok{
+	background: #CAFFC0;
+}
+.input:hover, .input select:hover, .input textarea:hover{
+	/*background: #CCB9E8;*/
+	background: #9ac0d6;
+}
+
+.input .none{
+	background: #FFF;
+}
+
+.submit{
+	display: block;
+}
+
+.submit input{
+	width: 160px;
+	height: 35px;
+	background: rgb(65, 102, 123);
+    padding: 7px;
+    border: solid 1px #BDBDBD;
+    color: #E8E8E8;
+	transition: background 0.3s;
+	cursor: pointer;
+}
+
+.submit input:hover{
+	background: #9ac0d6;
+}
+
+.help{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #e8e8e8;
+	color: black;
+	line-height: 33px;
+	background: white;
+	display: none;
+	z-index: 3;
+	min-height: 33px;
+	max-height: 200px;
+	overflow-y: auto;
+	color: black;
+}
+.help *{
+	display: block;
+}
+.help .option{
+	background: #e8e8e8;
+}
+.help .option:hover{
+	background: #656565;
+	color: white;
+	cursor: pointer;
+}
+.help .option *{
+	display: inline-block;
+}
+.input .search{
+	background: rgba(255,255,255,0);
+	display: none;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	transition: display 0.5s;
+}
+
+.input .error{
+	background: #FFD0D0;
+}
+
+.checkbox{
+	background: none;
+	border: none;
+}
+
+.checkbox:hover{
+	background: none;
+	border: none;
+}
+
+.checkbox a:hover{
+	text-decoration: underline;
+}
+
+.checkbox input{
+	min-width: inherit;
+	width: 13px;
+	height: 13px;
+	top: 1px;
+	margin-right: 10px; 
+}
+
+.checkbox p{
+	margin: 0;
+}
+
+.form .err{
+	color: red;
+	width: 100%;
+	text-align:center;
+}
+
+.tooltiptext{
+    visibility: hidden;
+    width: 200px;
+    background-color: rgba(0,0,0,0.80);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 9999;
+    left: 630px;
+	top: 190px;
+    margin-left: -60px;
+}
+
+.tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.form .inputop{
+	height: 30px;
+	line-height: 32px;
+	top: -10px;
+	margin: 5px;
+}
+
+.form .inputop *{
+	display: inline-block;
+}
+
+
+.form .inputop p{
+	margin: 0px;
+}
+
+.form .inputop input[type=radio]{
+	margin: 0px;
+	margin-top: 2px;
+	margin-right: 5px;
+	margin-left: 5px;
+}

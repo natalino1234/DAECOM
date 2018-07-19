@@ -1,0 +1,78 @@
+*{
+	position: relative;
+	z-index:1;
+}
+body{
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	background: #E8E8E8;
+	z-index: -1;
+}
+input:focus, textarea:focus, select:focus, a:focus{
+	outline: none;
+}
+.banner-top{
+	position: relative;
+	height: 200px;
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+}
+.banner-top #banner{
+	background: url("../img/banner-top-1200.png");
+	background-repeat: no-repeat;
+	width: 1200px;
+	height: 200px;
+}
+.facebook{
+	width: 488px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
+}
+.facebook *{
+	position: relative;
+	display: inline-block;
+}
+.facebook p{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+	line-height: 40px;
+	vertical-align: top;
+	font-family: Arial, sans-serif;
+}
+a:link {
+	text-decoration:none;
+	color: #B5684D;
+}
+/* visited link */
+a:visited {
+	color: #B5684D;
+}
+/* mouse over link */
+a:hover {
+	color: #B5684D;
+}
+/* selected link */
+a:active {
+	color: #B5684D;
+}
+form table{
+	position: relative;
+	margin: 0;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Arial, sans-serif;
+}
+.content{
+	position: relative;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
+	z-index: -1;
+}

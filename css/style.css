@@ -1,0 +1,101 @@
+body{
+    padding: 0;
+    margin: 0px;
+    background: #eeeeee;
+    font-family: arial;
+    overflow-x: hidden; 
+}
+#background{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+#background img{
+    position: fixed;
+    height: 100%;
+}
+#page-container{
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+#content{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    margin-left: 230px;
+    min-width: 1030px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+#title{
+    height: 55px;
+    font-family:  Learning Curve;
+    font-size: 50pt;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background: #4e5c70;
+    border-top: 5px solid #79828f;
+    border-bottom: 5px solid #79828f;
+}
+#top-ban{
+    width: 100%;
+    height: 300px;
+    background-image: url("/img/Bloco_B_pan.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-bottom: 3px solid #79828f; 
+}
+h4{
+    font-family: Arial;
+    padding: 0px; 
+    padding-left: 20px; 
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 12pt;
+    margin: 5px;
+}
+h3{
+    font-family: Learning Curve;
+    padding: 0px; 
+    padding-left: 20px; 
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 20pt;
+    margin-top: 5px;
+}
+h2{
+    font-family: Learning Curve;
+    padding: 0px; 
+    padding-left: 20px;
+    border-bottom: 3px solid #79828f; 
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 30pt;
+    margin-bottom: 5px;
+}
+h1{
+    padding: 0px; 
+    padding-left: 20px; 
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16pt;
+    color: white;
+    margin: 0;
+
+    background: #4e5c70;
+}
+h2.nomargin{
+    margin-bottom: 0px;
+}
+a,a:link, a:visited, a:active{
+    color: rgb(202, 121, 0);
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover{
+    border-bottom: 2px dotted rgb(202, 121, 0);
+}

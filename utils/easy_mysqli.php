@@ -1,0 +1,261 @@
+<?php
+
+/*
+* EasyMYSQLi PHP
+*
+* This is an easy to use mysqli based MYSQL manager class.
+*
+* @author Sandor Huszagh
+* @copyright (c) 2013 - Sandor Huszagh
+* @version 1.0
+* @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License v3
+*/
+
+class EasyMYSQLi {
+	private $link;
+	public  $numRows;  // The number of rows in the result set
+	public  $affectedRows; // The number of rows affected by the last INSERT, UPDATE, REPLACE or DELETE query
+	public  $result;
+	
+	/**
+	* Usage:
+	*
+	* $mysqliDetails = array(
+	*	'host' => 'localhost',
+	*	'user' => 'user',
+	*	'password' => 'password',
+	*	'database' => 'database'
+	* );
+	* $mysqli = new EasyMYSQLi($mysqliDetails);
+	*/
+	
+	public function __construct(array $mysqliDetails) {
+		$this->link = mysqli_connect($mysqliDetails['host'],$mysqliDetails['user'],$mysqliDetails['password'],$mysqliDetails['database']);
+		if (mysqli_connect_error()) {
+			die('Connect failed: '.mysqli_connect_error());
+		}
+	}
+	
+	/**
+	* Performs a single query on the database
+	*
+	* Usage:
+	*
+	* $mysqli->query('SELECT * FROM `test`');
+	* $resultDetails = array(
+	* 	'returnType' => 'ROW_ASSOC'
+	*	'numRows' => TRUE
+	* );
+	* $result = $mysqli->result($resultDetails); // 1st row from the result as associative array
+	* var_dump($result);
+	* echo "<br />";
+	* $result = $mysqli->result($resultDetails); // 2nd row from the result as associative array
+	* var_dump($result);
+	* echo '<br />Number of rows:'.$mysqli->numRows; // Number of rows in result
+	* $mysqli->close();
+	*/
+	
+	public function query($query,$queryMode=MYSQLI_STORE_RESULT) {
+		$this->clean_num_and_affected();
+		$this->result = mysqli_query($this->link,$query,$queryMode);
+	}
+	
+	/**
+	* Executes one or multiple queries which are concatenated by a semicolon.
+	*
+	* Usage:
+	*
+	* $query = 'SELECT * FROM `test`;';
+	* $query .= 'SELECT * FROM `test2` WHERE id=2';
+	* $mysqli->multi_query($query);
+	* $resultDetails = array(
+	* 	'returnType' => 'ROW_ASSOC'
+	* );
+	* $result = $mysqli->result($resultDetails); // 1st query's 1st row as associative array
+	* var_dump($result);
+	* echo "<br />";
+	* $result = $mysqli->result($resultDetails); // 1st query's 2st row as associative array
+	* var_dump($result);
+	* echo "<br />";
+	* $mysqli->next_result(); // Step to the next query
+	* $resultDetails = array(
+	* 	'returnType' => 'ALL_ASSOC'
+	* );
+	* $result = $mysqli->result($resultDetails); // Result from 2nd query as associative array
+	* var_dump($result);
+	* $mysqli->close();
+	*/
+	
+	public function multi_query($query) {
+		$this->clean_num_and_affected();
+		mysqli_multi_query($this->link,$query);
+		$this->result = mysqli_store_result($this->link);
+	}
+	
+	/**
+	* Bind variables to MYSQL query and execute it. Result will be an associative array.
+	*
+	* Usage:
+	*
+	* $mysqli->set_charset('utf8');
+	* $query = 'SELECT * FROM `test` WHERE id=? OR id=?';
+	* // Supported variable types: integer, string, double
+	* $params = array(
+	*	'first_param' => 2,
+	*	'second_param' => 4
+	* );
+	* $queryDetails = array(
+	*	'returnResult' => TRUE, // Return mysqli result. If you don't want result just leave it (for example when you use UPDATE, INSERT, DELETE, etc.). Default value: FALSE
+	*	'clean' => TRUE // Clean variables with mysqli_real_escape_string. Set the default client character set with $mysqli->set_charset() before use this.
+	* );
+	* $result = $mysqli->bind_query($query,$params,$queryDetails); // Result as associative array.
+	* var_dump($result);
+	* $mysqli->close();
+	*/
+	
+	public function bind_query($query,array $params, array $details = array()) {
+		$stmt = mysqli_prepare($this->link, $query);
+		$types = "";
+		foreach($params as $key => $value) {
+			if (isset($details['clean']) && $details['clean']===TRUE) {
+				$params[$key] = mysqli_real_escape_string($this->link,$value);
+			}
+			$refs[$key] = &$params[$key];
+			if (gettype($value)=='integer' || gettype($value) == 'string' || gettype($value) == 'double') $types .= substr(gettype($value), 0,1);
+		}
+		call_user_func_array('mysqli_stmt_bind_param', array_merge (array($stmt, $types), $refs)); 
+		mysqli_stmt_execute($stmt);
+		if (isset($details['returnResult']) && $details['returnResult'] === TRUE) return $this->fetch_stmt_obj($stmt);
+	}
+	
+	// Step to the next query when use $mysqli->multi_query().
+	
+	public function next_result() {
+		$this->clean_num_and_affected();
+		$this->result->free();
+		mysqli_next_result($this->link);
+		$this->result = mysqli_store_result($this->link);
+	}
+	
+	/**
+	* Mysqli result handler function. It will return the mysqli result as the given form.
+	*
+	* Return types:
+	*
+	* ROW_ASSOC - One row from the mysqli resource as associative array.
+	* ROW_NUM - One row from the mysqli resource as indexed array.
+	* ALL_ASSOC - Mysqli result as associative array.
+	* ALL_NUM - Mysqli result as indexed array.
+	* LAST_ID - Returns the ID generated by a query on a table with a column having the AUTO_INCREMENT attribute. If the last query wasn't an INSERT or UPDATE statement or if the modified table does not have a column with the AUTO_INCREMENT attribute, this function will return zero.
+	* RESULT - Returns the mysqli result.
+	*
+	* Usage:
+	*
+	* $resultDetails = array(
+	* 	'returnType' => 'ROW_ASSOC', // Set return type.
+	*	'numRows' => TRUE, // Set $mysqli->numRows. The number of rows in the result set.
+	*	'affectedRows' => TRUE // Set $mysqli->affetcedRows. The number of rows affected by the last INSERT, UPDATE, REPLACE or DELETE query. 
+	* );
+	* $result = $mysqli->result($resultDetails);
+	*/
+
+	public function result(array $resultDetails) {
+		if (!isset($resultDetails['returnType'])) $resultDetails['returnType'] = 'RESULT';
+		switch ($resultDetails['returnType']) {
+			case 'ROW_ASSOC':
+				$return = mysqli_fetch_array($this->result,MYSQLI_ASSOC);
+				break;
+			case 'ROW_NUM':
+				$return = mysqli_fetch_array($this->result,MYSQLI_NUM);
+				break;
+			case 'ALL_ASSOC':
+				$return = mysqli_fetch_all($this->result,MYSQLI_ASSOC);
+				break;
+			case 'ALL_NUM':
+				$return = mysqli_fetch_all($this->result,MYSQLI_NUM);
+				break;
+			case 'LAST_ID':
+				$return = mysqli_insert_id($this->link);
+				break;
+			case 'RESULT':
+				$return = $this->result;
+				break;
+			default:
+				die('Bad returnType given for the result() function!');
+				break;
+		}
+		if (isset($resultDetails['numRows']) && $resultDetails['numRows'] === TRUE) {
+			$this->numRows = $this->result->num_rows;
+		}
+		if (isset($resultDetails['affectedRows']) && $resultDetails['affectedRows'] === TRUE) {
+			$this->$affectedRows = $this->result->affected_rows;
+		}
+		return $return;
+	}
+	
+	// Convert mysqli_stmt object to associative array
+
+	private function fetch_stmt_obj($stmt) {
+		$meta = $stmt->result_metadata();
+		$fields = $meta->fetch_fields();
+		unset($meta);
+		foreach($fields as $field) {
+				$resultArray[$field->name] = &$result[$field->name];
+		}
+		unset($fields);
+		call_user_func_array(array($stmt, 'bind_result'), $resultArray);
+		while($stmt->fetch()) {
+				$resultObject = new stdClass();
+				foreach ($resultArray as $key => $value) {
+					$resultObject->$key = $value;
+				}
+				$rows[] = $resultObject;
+		}
+		return $rows;
+	}
+	
+	// Clean variables from unsafe characters
+	
+	public function real_escape_string($value) {
+		return mysqli_real_escape_string($this->link,$value);
+	}
+	
+	// Set default character set
+	
+	public function set_charset($charset) {
+		if (!mysqli_set_charset($this->link, $charset)) {
+			echo "Error loading character set ".$charset.": ". mysqli_error($this->link);
+		}
+	}
+	
+	// Select database
+	
+	public function select_db($databaseName) {
+		if (isset($databaseName)) {
+			msqli_select_db($this->link,$databaseName);
+		} else {
+			die('Database name parameter is empty!');
+		}
+	}
+	
+	// Set numRows and affectedRows to 0
+	
+	private function clean_num_and_affected() {
+		$this->numRows = 0;
+		$this->affectedRows = 0;
+	}
+	
+	// Close mysqli result
+	
+	public function close_result() {
+		$this->result->close();
+	}
+	
+	// Close mysqli
+	
+	public function close() {
+		mysqli_close($this->link);
+	}
+}
+
+?>

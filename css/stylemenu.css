@@ -1,0 +1,90 @@
+#sidebar{
+    min-height: 100%;
+    position: absolute;
+    width: 230px;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    background: #0f1b23;
+    border-right: 1px solid #cccccc;
+    box-sizing: border-box;
+}
+#sidebar *{
+    box-sizing: border-box;
+}
+/* unvisited link */
+#sidebar a:link,#sidebar a:active,#sidebar a:visited,#sidebar a:hover {
+    color: white;
+    text-decoration: none;
+    border-bottom: none;
+}
+#sidebar #mode{
+    font-family: Learning Curve;
+    font-size: 20pt;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background: #4e5c70;
+    border-top: 3px solid #79828f;
+    border-bottom: 3px solid #79828f;
+}
+.sidebar-nav{
+    list-style: none;
+    margin: 0;
+    padding: 10px 0 0;
+}
+.sidebar-nav li{
+    position: relative;
+    padding-left: 00px;
+    padding-right: 00px;
+}
+.sidebar-nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    background: #274052;
+}
+.sidebar-nav ul li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.sidebar-nav ul li a{
+    padding-left: 25px;
+}
+.sidebar-nav li i{
+    min-height: 35px;
+    line-height: 35px;
+    width: 35px;
+}
+.sidebar-nav a{
+    display: block;
+    color: #eaedf1;
+    padding: 0 10px;
+    min-height: 35px;
+    line-height: 35px;
+    text-align: left;
+    font-family: arial;
+    font-size: 11pt;
+    transition: background 1s;
+    cursor: default;
+}
+.sidebar-nav .admin{
+    background: #aaa; 
+}
+.sidebar-nav a:hover{
+    background: #456277;
+    cursor: pointer;
+}
+
+.sidebar-nav a .fa-angle-left{
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    transform: rotateZ(0deg);
+    transition: transform 0.8s;
+}
+.sidebar-nav a:hover .fa-angle-left{
+    transform: rotateZ(-90deg);
+}

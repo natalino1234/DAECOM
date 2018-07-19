@@ -1,0 +1,45 @@
+#alert{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    padding: 2px;
+    z-index: 9999;
+    background: rgba(31, 31, 31, 0.9);
+    border: 1px #0f1b23 solid;
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.9);
+    display: none;
+    min-width: 200px;
+}
+#alert .alert-top-bar{
+    position: relative;
+    height: 26px;
+    padding-left: 30px;
+    line-height: 26px;
+    color: #c2c2c2;
+}
+#alert .fa{
+    padding: 5px;
+}
+#alert .fa.fa-warning{
+    position: absolute;
+    left: 0px;
+    color:#fcc600;
+}
+#alert .fa.fa-times-circle{
+    position: absolute;
+    right: 0px;
+    color:#e03333;
+}
+#alert .fa.fa-times-circle:hover{
+    cursor: pointer;
+}
+#alert .mensagem{
+    position: relative;
+    font-family: arial;
+    border-radius: 3px;
+    border: 1px #0f1b23 solid;
+    padding: 10px;
+    background: rgba(214, 214, 214,0.8);
+    text-align: center;
+}

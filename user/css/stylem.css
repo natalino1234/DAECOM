@@ -1,0 +1,82 @@
+.menu-box{
+	width: 100%;
+	background: #3E4C54;
+	position: fixed;
+	top: 0px;
+	height: 50px;
+	font-family: Arial, sans-serif;
+	box-shadow: 0px 2px 5px black;
+}
+.menu{
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.menu .img{
+	display: none;
+}
+.menu ol{
+	position: relative;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 50px;
+	z-index: 9999;
+}
+.menu ol li{
+	background: rgba(0,0,0,0);
+	position: relative;
+	display: inline-block;
+	width: 150px;
+	transition: background 0.5s;
+}
+.menu ol li:hover{
+	background: #6A818E;
+}
+.menu ol li a{
+	display: block;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.menu ul{
+	background: #3E4C54;
+	display: none;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	box-shadow: 0px 2px 5px black;
+	z-index: -1;
+}
+.menu ul li{
+	position: relative;
+	display: block;
+	padding:0;
+}
+.menu ol li:hover ul{
+	display: block;
+}
+.menu ol li p{
+	display: none;
+}
+.menu .icon{
+	margin: 0px;
+	width: 50px;
+}
+.menu .icon img{
+	position: relative;
+	top: 10px;
+}
+.menu #init{
+	position: relative;
+	display: inline-block;
+	width: 100px;
+}
+.menu ol li a{
+	margin: 0;
+	color: #e8e8e8;
+}
